@@ -22,14 +22,15 @@ class PackageTests(unittest.TestCase):
 
     def test_cli_and_module_execution_succeed(self) -> None:
         """Both direct and ``python -m mitos`` entry paths return successfully."""
-        with mock.patch("builtins.input", side_effect=EOFError):
+        with mock.patch("builtins.input", side_effect=EOFError), \
+             mock.patch("builtins.print"):
             self.assertEqual(main([]), 0)
         completed = subprocess.run(
             [sys.executable, "-m", "mitos"], input="", capture_output=True,
             text=True, timeout=10,
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertIn("Mitos — model", completed.stdout)
+        self.assertIn("Mitos | model", completed.stdout)
 
     def test_runtime_sessions_are_gitignored(self) -> None:
         """Durable local transcripts stay outside repository history."""

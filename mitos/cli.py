@@ -69,7 +69,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         harness.run(args.prompt)
         return 0
 
-    print(f"Mitos — model {harness.model} | mode {mode} | jail {harness.workdir}")
+    print(f"Mitos | model {harness.model} | mode {mode} | jail {harness.workdir}")
     while True:
         try:
             task = input("mitos> ").strip()
