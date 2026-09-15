@@ -5,7 +5,8 @@ remain available for lessons without becoming required user-facing ceremony.
 """
 
 from mitos.harness import Harness
+from mitos.fleet import run_fleet
 from mitos.security import Policy
 from mitos.tools import Tool, tool
 
-__all__ = ["Harness", "Policy", "Tool", "tool"]
+__all__ = ["Harness", "Policy", "Tool", "tool", "run_fleet"]

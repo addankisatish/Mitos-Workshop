@@ -17,7 +17,7 @@ class PackageTests(unittest.TestCase):
 
     def test_public_exports_are_exact(self) -> None:
         """The package root exposes only the requested extension surface."""
-        self.assertEqual(mitos.__all__, ["Harness", "Policy", "Tool", "tool"])
+        self.assertEqual(mitos.__all__, ["Harness", "Policy", "Tool", "tool", "run_fleet"])
         self.assertTrue(all(hasattr(mitos, name) for name in mitos.__all__))
 
     def test_cli_and_module_execution_succeed(self) -> None:
